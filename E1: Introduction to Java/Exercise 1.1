@@ -1,1 +1,58 @@
+/* 
+За дадена низа од случајни броеви кои се внесуваат од стандарден влез, да се направи преместување на сите нули на почеток на низата. На стандарден излез да се испечати трансформираната низа.
+/
+For a given array of random numbers given from standard input, perform a shift of all zeros at the beginning of the sequence. Print the transformed array to standard output.
 
+For example:
+
+Input	
+12
+1 9 8 4 0 0 2 7 0 6 0 9
+
+Result
+Transformiranata niza e:
+0 0 0 0 1 9 8 4 2 7 6 9
+*/
+
+import java.util.Scanner;
+
+public class PushZero
+{
+	static void pushZerosToBeginning(int arr[], int n)
+	{
+	    int count = 0;
+	    int newArr[] = new int[n];
+	    
+	    for(int i=0;i<n;i++){
+	       if(arr[i] == 0)
+	           newArr[count++] = arr[i];
+	    }
+	    for(int i=0;i<n;i++){
+	        if(arr[i] != 0){
+	            newArr[count++] = arr[i];
+	        }
+	    }
+	    
+	    System.out.println("Transformiranata niza e:");
+        for(int i=0;i<n;i++){
+            System.out.printf(String.valueOf(newArr[i] + " "));
+        }
+	}
+
+	public static void main (String[] args)
+	{
+	    int n;
+		int arr[] = new int[100];
+		
+		Scanner input = new Scanner(System.in);
+		n = input.nextInt();
+		
+		for(int i=0;i<n;i++){
+		    arr[i] = input.nextInt();
+		}
+		
+		pushZerosToBeginning(arr, n);
+		
+		input.close();
+	}
+}
